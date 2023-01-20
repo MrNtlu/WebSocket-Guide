@@ -41,4 +41,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
 
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.10'
 }

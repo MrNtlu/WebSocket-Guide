@@ -70,6 +70,12 @@ class MainFragment : Fragment() {
         }
 
         disconnectButton.setOnClickListener {
+            /**
+             * Cancel vs Close (immidiate vs gracefully)
+             * cancel -> Immediately and violently release resources held by this web socket, discarding any enqueued messages. This does nothing if the web socket has already been closed or canceled.
+             * close -> Attempts to initiate a graceful shutdown of this web socket. Any already-enqueued messages will be transmitted before the close message is sent but subsequent calls to send will
+             *      return false and their messages will not be enqueued.
+             */
             webSocket?.close(1000, "Canceled manually.")
         }
 
@@ -85,5 +91,10 @@ class MainFragment : Fragment() {
         return Request.Builder()
             .url(websocketURL)
             .build()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        okHttpClient.dispatcher.executorService.shutdown()
     }
 }

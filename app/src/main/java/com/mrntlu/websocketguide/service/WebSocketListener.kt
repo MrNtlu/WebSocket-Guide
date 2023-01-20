@@ -40,6 +40,4 @@ class WebSocketListener(
         Log.d(TAG, "onFailure: ${t.message} $response")
         super.onFailure(webSocket, t, response)
     }
-
-
 }
