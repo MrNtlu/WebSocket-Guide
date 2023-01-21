@@ -34,7 +34,6 @@ class MainFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         webSocketListener = WebSocketListener(viewModel)
-        // TODO: Use the ViewModel
     }
 
     override fun onCreateView(
